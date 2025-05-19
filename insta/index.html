@@ -5,24 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미리보기</title>
     <style>
-        * {margin :0; padding:0; }
-        body { background:#000; width:100%; margin:0 auto;  }
-        .inner { max-width:1080px; margin:0 auto; text-align:center; outline:1px solid yellow; }
-        
+        #insta {}
+        .inner { width:1080px; max-width:1080px; margin:0 auto; }
+        /* 썸네일 전체 그리드 */
+        .thumb-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        gap: 4px;
+        margin-bottom:4px; 
+        }
 
+        /* 3:4 썸네일 박스 */
+        .thumb-box {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        position: relative;
+        background-color: #f0f0f0;
+        }
+
+        /* 이미지 등록은 4:5지만 썸네일에서는 중앙 정렬 */
+        .thumb-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* 중앙 잘림 처리 */
+        object-position: center;
+        display: block;
+        }
     </style>
 </head>
 <body>
-    <div id="video">
+    <div id="insta">
         <div class="inner">
-            <div class="content">
-               <ul>
-                    <li>g</li>
-                    <li>g</li>
-                    <li>g</li>
-               </ul>
+            <div class="thumb-grid">
+                    <div class="thumb-box">
+                        <img src="data/01.png" alt="썸네일">
+                    </div>
+                    <div class="thumb-box">
+                        <img src="data/02.png" alt="썸네일">
+                    </div>
+                    <div class="thumb-box">
+                        <img src="data/03.png" alt="썸네일">
+                    </div>
+            </div>
+            <div class="thumb-grid">
+                <div class="thumb-box">
+                    <img src="data/04.jpg" alt="썸네일">
+                </div>
+                <div class="thumb-box">
+                    <img src="data/05.jpg" alt="썸네일">
+                </div>
+                <div class="thumb-box">
+                    <img src="data/06.jpg" alt="썸네일">
+                </div>
             </div>
         </div>
     </div>
+
+   
 </body>
 </html>
