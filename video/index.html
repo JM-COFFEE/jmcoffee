@@ -7,9 +7,9 @@
     <style>
         * {margin :0; padding:0; }
         body { background:#000; width:100%; margin:0 auto;  }
-        .inner { max-width:1080px; margin:0 auto; text-align:center; outline:1px solid yellow; }
-        .content { outline:1px solid red; }
-        video { position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); }
+        .inner { max-width:1080px; margin:0 auto; text-align:center; /*outline:1px solid yellow;*/ }
+        .content { display:flex; justify-content: center;}
+        /* video { position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); } */
         /* video { border:1px solid red; height:100%; } */
         /* #video { }
         #video video { width:100%; width:auto; outline:1px solid red; } */
@@ -19,7 +19,14 @@
     <div id="video">
         <div class="inner">
             <div class="content">
-                <video src="data/250619 sinsa.mp4" autoplay muted loop playsinline controls style="width:100%; height:100vh; max-width:none;"></video>
+                <div class="box">
+                    <video src="data/250701 sinsa.mp4" autoplay muted loop playsinline controls style="width:100%; height:100vh; max-width:none;"></video>
+                </div>
+                <!-- 
+                <div class="box">
+                    <video src="data/250617 sinsa.mp4" autoplay muted loop playsinline controls style="width:100%; height:100vh; max-width:none;"></video>
+                </div>
+                -->
             </div>
         </div>
     </div>
