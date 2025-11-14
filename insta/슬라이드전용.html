@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자동 슬라이드 썸네일</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<style>
+    #insta { padding:50px 0; }
+    .inner { width:1800px; max-width:1800px; margin:0 auto;   }
+    .thumb-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+        gap: 4px;
+        margin-bottom:4px; 
+    }
+    .thumb-box {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        position: relative;
+        background-color: #f0f0f0;
+    }
+    .thumb-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    /* Swiper 화살표 숨김 기본 */
+    .thumb-box .swiper-button-next,
+    .thumb-box .swiper-button-prev {
+        opacity: 0;
+        transition: opacity 0.3s;
+        color: white;
+    }
+
+    /* 마우스 오버 시 화살표 표시 */
+    .thumb-box:hover .swiper-button-next,
+    .thumb-box:hover .swiper-button-prev {
+        opacity: 1;
+    }
+
+    /* swiper height 맞추기 */
+    .thumb-box .swiper { height: 100%; }
+    .thumb-box .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<div id="insta">
+    <div class="inner">
+        <div class="thumb-grid">
+            <div class="thumb-box"><img src="data/1.jpg" alt="썸네일"></div>
+            <div class="thumb-box"><img src="data/2.jpg" alt="썸네일"></div>
+
+            <!-- 자동 슬라이드 썸네일 -->
+            <div class="thumb-box">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="data/3.jpg" alt="슬라이드1"></div>
+                        <div class="swiper-slide"><img src="data/3-1.jpg" alt="슬라이드2"></div>
+                        <div class="swiper-slide"><img src="data/3-2.jpg" alt="슬라이드3"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+        </div>
+                <div class="thumb-grid">
+            <div class="thumb-box"><img src="data/1.jpg" alt="썸네일"></div>
+            <div class="thumb-box"><img src="data/2.jpg" alt="썸네일"></div>
+            <div class="thumb-box"><img src="data/2.jpg" alt="썸네일"></div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+const swiper = new Swiper('.thumb-box .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    }
+});
+
+// 마우스 오버 시 슬라이드 멈추기
+const slideBox = document.querySelector('.thumb-box .swiper');
+slideBox.addEventListener('mouseenter', () => swiper.autoplay.stop());
+slideBox.addEventListener('mouseleave', () => swiper.autoplay.start());
+</script>
+</body>
+</html>
