@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>인스타그램 미리보기</title>
+<title>인스타그램 미리보긴</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 <style>
     #insta { padding:50px 0; }
@@ -45,6 +45,43 @@
     /* swiper height 맞추기 */
     .thumb-box .swiper { height: 100%; }
     .thumb-box .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+
+/* -------------------------
+    📱 반응형 (3열은 유지)
+--------------------------*/
+
+/* 1024px 이하 — 컨테이너 폭 자동 조정 */
+@media (max-width: 1024px) {
+    .inner {
+        width: 95%;
+    }
+}
+
+/* 768px 이하 — 이미지가 자동으로 작게 줄어듦 */
+@media (max-width: 768px) {
+    #insta { padding: 30px 0; }
+    .thumb-box {
+        aspect-ratio: 1 / 1;  /* 모바일에서 정사각형이 보기 좋음 (원하면 유지 가능) */
+    }
+}
+
+/* 480px 이하 — 더 작아져도 3열 유지 */
+@media (max-width: 480px) {
+    .thumb-grid {
+        gap: 3px;
+    }
+
+    .thumb-box {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* 모바일에서 화살표 항상 표시 */
+    .thumb-box .swiper-button-next,
+    .thumb-box .swiper-button-prev {
+        opacity: 1;
+    }
+}
 </style>
 </head>
 <body>
@@ -52,23 +89,24 @@
 <div id="insta">
     <div class="inner">
 
-        <div class="thumb-grid">
+        <!-- <div class="thumb-grid">
             <div class="thumb-box"><img src="data/1.jpg" alt="썸네일"></div>
             <div class="thumb-box"><img src="data/2.jpg" alt="썸네일"></div>
             <div class="thumb-box"><img src="data/3.jpg" alt="썸네일"></div>
-        </div>
+        </div> -->
 
         <div class="thumb-grid">
-            <div class="thumb-box"><img src="data/4.jpg" alt="썸네일"></div>
-            <div class="thumb-box"><img src="data/5.jpg" alt="썸네일"></div>
+            <div class="thumb-box"><img src="data/10.jpg" alt="썸네일"></div>
+            <div class="thumb-box"><img src="data/11.jpg" alt="썸네일"></div>
 
             <!-- 자동 슬라이드 썸네일 -->
             <div class="thumb-box">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="data/6.jpg" alt="슬라이드1"></div>
-                        <div class="swiper-slide"><img src="data/6-1.jpg" alt="슬라이드2"></div>
-                        <div class="swiper-slide"><img src="data/6-2.jpg" alt="슬라이드3"></div>
+                        <div class="swiper-slide"><img src="data/12.jpg" alt="슬라이드1"></div>
+                        <div class="swiper-slide"><img src="data/12-1.jpg" alt="슬라이드2"></div>
+                        <div class="swiper-slide"><img src="data/12-2.jpg" alt="슬라이드3"></div>
+                        <div class="swiper-slide"><img src="data/12-3.jpg" alt="슬라이드4"></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -76,11 +114,6 @@
                 </div>
             </div>
 
-        </div>
-        <div class="thumb-grid">
-            <div class="thumb-box"><img src="data/7.jpg" alt="썸네일"></div>
-            <div class="thumb-box"><img src="data/8.jpg" alt="썸네일"></div>
-            <div class="thumb-box"><img src="data/9.jpg" alt="썸네일"></div>
         </div>
     </div>
 </div>
